@@ -5,12 +5,8 @@ from playwright.sync_api import Playwright, sync_playwright, expect
 
 # @pytest.mark.smoke
 @pytest.mark.xfail(reason="Sprawdzam czy sie wywali")
-def test_start(playwright: Playwright):
-    browser = playwright.chromium.launch(headless=False)
-    context = browser.new_context()
-    page = context.new_page()
-    page.set_default_timeout(10000)
-    page.goto("https://www.saucedemo.com/v1/index.html")
+def test_start(set_up):
+    page = set_up
     page.wait_for_load_state("networkidle")
     page.get_by_text("Accepted usernames are: standard_user locked_out_user problem_user").click()
     page.get_by_text("Accepted usernames are: standard_user locked_out_user problem_user").click()
@@ -38,18 +34,14 @@ def test_start(playwright: Playwright):
     text = page.get_by_text("Sauce Labs Backpackcarry.").text_content()
 
     assert text != "da"
-
-
-    # ---------------------
-    context.close()
-    browser.close()
+    #
+    #
+    # # ---------------------
+    # context.close()
+    # browser.close()
 @pytest.mark.skip(reason="bo tak")
-def test_start_2(playwright: Playwright):
-    browser = playwright.chromium.launch(headless=False)
-    context = browser.new_context()
-    page = context.new_page()
-    page.set_default_timeout(10000)
-    page.goto("https://www.saucedemo.com/v1/index.html")
+def test_start_2(set_up):
+    page = set_up
     page.wait_for_load_state("networkidle")
     page.get_by_text("Accepted usernames are: standard_user locked_out_user problem_user").click()
     page.get_by_text("Accepted usernames are: standard_user locked_out_user problem_user").click()
@@ -74,8 +66,8 @@ def test_start_2(playwright: Playwright):
     page.wait_for_load_state("networkidle")
     expect(page.get_by_role("button", name="LOGIN")).to_be_hidden()
     assert page.get_by_role("button", name="LOGIN").is_hidden()
-    # ---------------------
-    context.close()
-    browser.close()
+    # # ---------------------
+    # context.close()
+    # browser.close()
 
 

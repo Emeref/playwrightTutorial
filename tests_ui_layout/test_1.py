@@ -2,12 +2,8 @@ import re
 from playwright.sync_api import Playwright, sync_playwright, expect
 
 
-def test_run3(playwright: Playwright) -> None:
-    browser = playwright.chromium.launch(headless=False )
-    context = browser.new_context()
-    page = context.new_page()
-    page.set_default_timeout(10000)
-    page.goto("https://www.saucedemo.com/v1/index.html")
+def test_run3(set_up) -> None:
+    page = set_up
     page.wait_for_load_state("networkidle")
     page.get_by_text("Accepted usernames are: standard_user locked_out_user problem_user").click()
     page.get_by_text("Accepted usernames are: standard_user locked_out_user problem_user").click()
@@ -33,6 +29,4 @@ def test_run3(playwright: Playwright) -> None:
     assert page.get_by_role("button", name="LOGIN").is_hidden()
 
     # ---------------------
-    context.close()
-    browser.close()
 
