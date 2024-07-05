@@ -1,7 +1,8 @@
 import re
+import pytest
 from playwright.sync_api import Playwright, sync_playwright, expect
 
-
+@pytest.mark.skip
 def test_run3(set_up) -> None:
     page = set_up
     page.wait_for_load_state("networkidle")

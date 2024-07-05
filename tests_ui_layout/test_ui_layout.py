@@ -3,21 +3,11 @@ import re
 import pytest
 from playwright.sync_api import Playwright, sync_playwright, expect
 
-# @pytest.mark.smoke
-@pytest.mark.xfail(reason="Sprawdzam czy sie wywali")
-def test_start(set_up):
-    page = set_up
-    page.wait_for_load_state("networkidle")
-    page.get_by_text("Accepted usernames are: standard_user locked_out_user problem_user").click()
-    page.get_by_text("Accepted usernames are: standard_user locked_out_user problem_user").click()
-    page.locator("[data-test=\"username\"]").click()
-    page.locator("[data-test=\"username\"]").fill("standard_user")
-    page.locator("[data-test=\"username\"]").press("Tab")
-    page.locator("[data-test=\"password\"]").fill("secret_sau2ce")
-    page.locator("[data-test=\"password\"]").press("Tab")
-    page.get_by_role("img").click()
-    page.locator(".login_logo").click(timeout=1000)
-    page.get_by_role("button", name="LOGIN").click(timeout=1000)
+@pytest.mark.smoke
+# @pytest.mark.xfail(reason="Sprawdzam czy sie wywali")
+def test_start(login_set_up):
+    page = login_set_up
+
     expect(page).to_have_title("Swag Labs",timeout=1000)
     expect(page.get_by_role("link", name="1")).to_be_hidden(timeout=1000)
     page.locator("div").filter(has_text=re.compile(r"^\$29\.99ADD TO CART$")).get_by_role("button").click(timeout=1430)
@@ -39,7 +29,7 @@ def test_start(set_up):
     # # ---------------------
     # context.close()
     # browser.close()
-@pytest.mark.skip(reason="bo tak")
+# @pytest.mark.skip(reason="bo tak")
 def test_start_2(set_up):
     page = set_up
     page.wait_for_load_state("networkidle")
