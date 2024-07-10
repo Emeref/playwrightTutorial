@@ -1,7 +1,6 @@
 import pytest
 from playwright.sync_api import Playwright
 import os
-import secret_config2
 
 
 @pytest.fixture
