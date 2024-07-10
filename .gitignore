@@ -3,3 +3,4 @@ wyniki
 test-results
 utils/secret_config.p
 report.html
+tests_ui_layout/secret_config.py
