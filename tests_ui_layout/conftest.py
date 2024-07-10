@@ -2,12 +2,12 @@ import pytest
 from playwright.sync_api import Playwright
 import os
 
-
-try:
-    PASSWORD = os.environ['PASSWORD']
-except:
-    import secret
-    PASSWORD = secret.PASSWORD
+PASSWORD = os.environ['PASSWORD']
+# try:
+#     PASSWORD = os.environ['PASSWORD']
+# except:
+#     import secret
+#     PASSWORD = secret.PASSWORD
 
 
 

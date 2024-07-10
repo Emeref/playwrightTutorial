@@ -2,8 +2,8 @@
 wyniki
 test-results
 utils/
-report.html
 tests_ui_layout/secret.py
 /tests_ui_layout/secret.py
 *.env
 .env
+report.html
