@@ -3,6 +3,14 @@ from playwright.sync_api import Playwright
 import os
 
 
+try:
+    PASSWORD = os.environ['PASSWORD']
+except:
+    import secret
+    PASSWORD = secret.PASSWORD
+
+
+
 @pytest.fixture
 def set_up (page) -> None:
     # browser = playwright.chromium.launch(headless=False )
@@ -22,7 +30,7 @@ def login_set_up(set_up):
     page.locator("[data-test=\"username\"]").click()
     page.locator("[data-test=\"username\"]").fill("standard_user")
     page.locator("[data-test=\"username\"]").press("Tab")
-    page.locator("[data-test=\"password\"]").fill(os.environ['PASSWORD'])
+    page.locator("[data-test=\"password\"]").fill(PASSWORD)
     page.locator("[data-test=\"password\"]").press("Tab")
     page.get_by_role("img").click()
     page.locator(".login_logo").click(timeout=1000)
