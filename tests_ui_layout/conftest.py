@@ -10,6 +10,7 @@ def set_up (page) -> None:
     page.goto("https://www.saucedemo.com/v1/index.html")
 
     yield page
+    page.close()
 
 @pytest.fixture
 def login_set_up(set_up):

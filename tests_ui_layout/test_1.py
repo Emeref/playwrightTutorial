@@ -2,16 +2,21 @@ import re
 import pytest
 from playwright.sync_api import Playwright, sync_playwright, expect
 
-@pytest.mark.skip
-def test_run3(set_up) -> None:
+# @pytest.mark.skip
+@pytest.mark.parametrize("email",  ["standard_user",
+                                             pytest.param("test", marks=pytest.mark.xfail),
+                                             pytest.param("locked_out_user", marks=pytest.mark.xfail)])
+@pytest.mark.parametrize(" password", ["secret_sauce",
+                                             pytest.param("fas", marks=pytest.mark.xfail)])
+def test_run3(set_up, email, password) -> None:
     page = set_up
     page.wait_for_load_state("networkidle")
     page.get_by_text("Accepted usernames are: standard_user locked_out_user problem_user").click()
     page.get_by_text("Accepted usernames are: standard_user locked_out_user problem_user").click()
     page.locator("[data-test=\"username\"]").click()
-    page.locator("[data-test=\"username\"]").fill("standard_user")
+    page.locator("[data-test=\"username\"]").fill(email)
     page.locator("[data-test=\"username\"]").press("Tab")
-    page.locator("[data-test=\"password\"]").fill("secret_sauce")
+    page.locator("[data-test=\"password\"]").fill(password)
     page.locator("[data-test=\"password\"]").press("Tab")
     page.get_by_role("img").click()
     page.locator(".login_logo").click(timeout=1000)
