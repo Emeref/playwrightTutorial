@@ -1,6 +1,5 @@
 # created by virtualenv automatically
 wyniki
 test-results
-utils/secret_config.p
+utils/
 report.html
-tests_ui_layout/secret_config2.py

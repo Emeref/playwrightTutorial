@@ -1,14 +1,14 @@
+import os
 import re
 import pytest
 from playwright.sync_api import Playwright, sync_playwright, expect
-import secret_config2
 
 
 # @pytest.mark.skip
 @pytest.mark.parametrize("email",  ["standard_user",
                                              pytest.param("test", marks=pytest.mark.xfail),
                                              pytest.param("locked_out_user", marks=pytest.mark.xfail)])
-@pytest.mark.parametrize(" password", [secret_config2.PASSWORD,
+@pytest.mark.parametrize(" password", [os.environ['PASSWORD'],
                                              pytest.param("fas", marks=pytest.mark.xfail)])
 def test_run3(set_up, email, password) -> None:
     page = set_up
