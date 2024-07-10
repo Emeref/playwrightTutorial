@@ -1,3 +1,5 @@
 # created by virtualenv automatically
 wyniki
 test-results
+utils/secret_config.p
+report.html

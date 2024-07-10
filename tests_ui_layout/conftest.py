@@ -1,6 +1,9 @@
 import pytest
 from playwright.sync_api import Playwright
 
+import secret_config
+
+
 @pytest.fixture
 def set_up (page) -> None:
     # browser = playwright.chromium.launch(headless=False )
@@ -20,7 +23,7 @@ def login_set_up(set_up):
     page.locator("[data-test=\"username\"]").click()
     page.locator("[data-test=\"username\"]").fill("standard_user")
     page.locator("[data-test=\"username\"]").press("Tab")
-    page.locator("[data-test=\"password\"]").fill("secret_sauce")
+    page.locator("[data-test=\"password\"]").fill(secret_config.PASSWORD)
     page.locator("[data-test=\"password\"]").press("Tab")
     page.get_by_role("img").click()
     page.locator(".login_logo").click(timeout=1000)
