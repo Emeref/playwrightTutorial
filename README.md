@@ -5,6 +5,7 @@
  * pytest-playwritght
  * pytest-reporter-html1
  * pytest-xdist
+ * pytest_dotenv
 
 #### command to run tests:
     pytest --template=html1/index.html --report=report.html -n 3 --maxfail=1 -m smoke --browser=chromium --device="iPhone 14"  --video=retain-on-failure  --screenshot=only-on-failure

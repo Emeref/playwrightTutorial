@@ -3,11 +3,15 @@ import re
 import pytest
 from playwright.sync_api import Playwright, sync_playwright, expect
 
-try:
-    PASSWORD = os.environ['PASSWORD']
-except:
-    import secret
-    PASSWORD = secret.PASSWORD
+
+PASSWORD = os.environ['PASSWORD']
+
+
+# try:
+#     PASSWORD = os.environ['PASSWORD']
+# except:
+#     import secret
+#     PASSWORD = secret.PASSWORD
 # @pytest.mark.skip
 @pytest.mark.parametrize("email",  ["standard_user",
                                              pytest.param("test", marks=pytest.mark.xfail),
