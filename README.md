@@ -25,3 +25,11 @@
             Results will be saved in 'test-results' folder, by adding --output=<name> it will create folder and save there
 * **screenshot**: there are three options: off (no screenshot saved), on(screenshot for every test, on the end) or 
                    retain-on-failure (screenshot only on failed tests). Results will be saved in 'test-results' folder.
+
+
+
+#### Test cases covered:
+1. Login for different users 
+2. Adding to cart
+3. Removing from cart
+4. Checking 

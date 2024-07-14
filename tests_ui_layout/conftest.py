@@ -2,7 +2,7 @@ import pytest
 from playwright.sync_api import Playwright
 import os
 
-PASSWORD = os.environ['PASSWORD']
+# PASSWORD = os.environ['PASSWORD']
 # try:
 #     PASSWORD = os.environ['PASSWORD']
 # except:
@@ -37,3 +37,4 @@ def login_set_up(set_up):
     page.get_by_role("button", name="LOGIN").click(timeout=1000)
 
     yield page
+
