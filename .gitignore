@@ -7,3 +7,4 @@ tests_ui_layout/secret.py
 *.env
 .env
 report.html
+report.htm
