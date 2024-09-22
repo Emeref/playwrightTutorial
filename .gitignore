@@ -8,3 +8,4 @@ tests_ui_layout/secret.py
 .env
 report.html
 report.htm
+tests_ui_layout

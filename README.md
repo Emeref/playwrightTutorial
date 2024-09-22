@@ -11,7 +11,7 @@
     pytest --template=html1/index.html --report=report.html -n 3 --maxfail=1 -m smoke --browser=chromium --device="iPhone 14"  --video=retain-on-failure  --screenshot=only-on-failure
 
 * **report**: name of report file.
-* **n**: 'auto' allows to check bow many are available, and with numbers 1-auto we can select how many will 
+* **n**: 'auto' allows to check how many are available, and with numbers 1-auto we can select how many will 
                      not make using computer hard...
 * **maxfail**: sets amount of fails after which we will stop the run
 * **m**: will allow to test only TC that are marked with specific way (available markers are described in pytest.ini, 
@@ -25,6 +25,7 @@
             Results will be saved in 'test-results' folder, by adding --output=<name> it will create folder and save there
 * **screenshot**: there are three options: off (no screenshot saved), on(screenshot for every test, on the end) or 
                    retain-on-failure (screenshot only on failed tests). Results will be saved in 'test-results' folder.
+
 
 
 
