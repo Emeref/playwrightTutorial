@@ -34,3 +34,9 @@
 2. Adding to cart
 3. Removing from cart
 4. Checking 
+
+
+
+#### CI/CD integration:
+After each push to repo there is a workflow in github that runs all tests to check if everything is fine.
+Results can be checked in Actions tab of github.
